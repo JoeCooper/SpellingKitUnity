@@ -1,0 +1,3 @@
+[submodule "SpellingKit"]
+	path = SpellingKit
+	url = https://github.com/NobleMuffins/SpellingKit.git
