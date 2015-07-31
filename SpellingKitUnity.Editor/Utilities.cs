@@ -4,6 +4,12 @@ using System.IO;
 
 namespace NobleMuffins.SpellingKit.Unity {
 	public static class Utilities {
+		[MenuItem("Assets/Create/Sample Sentence")]
+		public static void CreateSampleSentenceInstance()
+		{
+			CreateAsset<SampleSentence>("Sample Sentence");
+		}
+
 		[MenuItem("Assets/Create/Spelling")]
 		public static void CreateSpellingInstance()
 		{
