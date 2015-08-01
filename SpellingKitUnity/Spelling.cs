@@ -6,8 +6,6 @@ using System.Collections.Generic;
 namespace NobleMuffins.SpellingKit.Unity {
 	public class Spelling : ScriptableObject, ISpelling
 	{
-		private readonly static CultureInfo[] EmptyLocales = new CultureInfo[0];
-
 		public string text;
 		public string[] locales;
 
@@ -18,27 +16,11 @@ namespace NobleMuffins.SpellingKit.Unity {
 			}
 		}
 
+		private IEnumerable<CultureInfo> localesCache;
 		public IEnumerable<CultureInfo> Locales {
 			get {
-				ICollection<CultureInfo> cultureInfos;
-				if(locales == null || locales.Length == 0) {
-					cultureInfos = EmptyLocales;
-				} else {
-					cultureInfos = new List<CultureInfo>(locales.Length);
-					foreach(var locale in locales) {
-						try {
-							var cultureInfo = CultureInfo.GetCultureInfo(locale);
-							cultureInfos.Add(cultureInfo);
-						}
-						catch(System.ArgumentException) {
-							Debug.LogErrorFormat("Spelling '{0}' has invalid locale '{1}'", name, locale);
-						}
-						catch(System.Exception ex) {
-							Debug.LogException(ex);
-						}
-					}
-				}
-				return cultureInfos;
+				localesCache = localesCache ?? NobleMuffins.SpellingKitUnity.Utilities.GetCultureInfosFromLocales (name + " (Spelling)", locales);
+				return localesCache;
 			}
 		}
 		#endregion

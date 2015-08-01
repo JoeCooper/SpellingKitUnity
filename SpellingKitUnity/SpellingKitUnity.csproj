@@ -39,6 +39,7 @@
     <Compile Include="Spelling.cs" />
     <Compile Include="Word.cs" />
     <Compile Include="SampleSentence.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
