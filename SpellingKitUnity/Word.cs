@@ -15,7 +15,7 @@ namespace NobleMuffins.SpellingKit.Unity {
 			return NobleMuffins.SpellingKit.Utilities.GetSpelling (this, preferredCulture);
 		}
 
-		public ISampleSentence GetSampleSentence(CultureInfo preferredCulture)
+		public ISampleSentence GetSampleSentence(CultureInfo preferredCulture = null)
 		{
 			return NobleMuffins.SpellingKit.Utilities.GetSampleSentence (this, preferredCulture);
 		}
